@@ -6,7 +6,7 @@ This is a home project for controlling up to three PWM capable fans by setting t
 
 The device is simple to use: just simply connect the PWM capable fans to the board, and power it using a 12 V DC power supply. The device uses an LCD screen to show information. The LCD screen turns off automatically after 5 seconds. It turns on again when the rotary encoder is rotated or pushed.
 
-On first run, the fans will rotate at the 100% of their max speed. The "active" fan, the actual rotating speed, and the configured % of the max speed are shown in the LCD screen (see `include/Messages.h` to localize the messages):
+On first run, the fans will rotate at the 100% of their max speed. The "active fan", the actual rotating speed, and the configured % of the max speed are shown in the LCD screen (see `include/Messages.h` to localize the messages):
 
 ![Normal screen](doc/screen-normal.png)
 
@@ -16,9 +16,9 @@ Fan speed can be saved by long-pressing the rotary encoder button (between 2 and
 
 ![Fan saved](doc/screen-saved.png)
 
-The active fan (i.e., the one shown in the screen, and the one whose speed will change when rotating the rotary encoder) can be changed by short pushing the rotary encoder button (less that 2 seconds) if the screen is on. The active fan will change to the next available fan. 
+The active fan (i.e., the one shown in the screen, and the one whose speed will change when rotating the rotary encoder) can be changed by short pushing the rotary encoder button for less that 2 seconds if the screen is on. The active fan will change to the next available fan. 
 
-The device allows controlling up to three PWM-capable fans, but only those that are connected on system startup will be shown in the LCD screen when the active fan changes. That is, if only Fans 1 and 2 are connected when the device is powered on, pushing the rotary controller for less than two seconds will change the active fan from 1 to 2, and when pushing again, from 2 to 1. Fan 3, which is disconnected, will be skipped. When a fan gets disconnected during normal operation, the fan will be reported as rotating at 0 RPMs. If not fans are connected on device boot, no fans will be shown:
+The device allows controlling up to three PWM-capable fans, but only those that are connected on system startup will be shown in the LCD screen when the active fan changes. That is, if only Fans 1 and 2 are connected when the device is powered on, pushing the rotary encoder for less than two seconds will change the active fan from 1 to 2, and when pushing again, from 2 to 1. Fan 3, which is disconnected, will be skipped. When a fan gets disconnected during normal operation, the fan will be reported as rotating at 0 RPMs. If not fans are connected on device boot, no fans will be shown:
 
 ![No fans](doc/screen-no-fans.png)
 
@@ -30,13 +30,13 @@ The device allows controlling up to three PWM-capable fans, but only those that 
 |   1 | Arduino nano                       |
 |   3 | PWM-capable Fans                   |
 |   3 | 1 MOhm resistor                    |
-|   1 | Rotary Controller with push button |
+|   1 | Rotary encoder with push button    |
 |   1 | LCD Screen (16x2 characters)       |
 |   - | Dupont connectors & cables         |
 
 ## Pinout
 
-Next you'll find the pins that are being used from the Arduino nano board. These can be configured in `include/Globals.h`. Keep in mind that tachometer pins are supposed to used PCINTs, so keep this in mind when changing these pins. Also, PWM pins must be kept unchanged. See https://fdossena.com/?p=ArduinoFanControl/i.md for an explanation on how the PWM signals are generated.
+Next you'll find the pins that are being used from the Arduino nano board. These can be configured in `include/Globals.h`. Keep in mind that tachometer pins are supposed to used PCINTs, so remember this when changing these pins. Also, PWM pins must be kept unchanged. See https://fdossena.com/?p=ArduinoFanControl/i.md for an explanation on how the PWM signals are generated.
 
 
 | Name                 | Pin | Description
